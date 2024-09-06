@@ -26,3 +26,40 @@ function openTab(tabId) {
         activeButton.classList.add('active');
     }
 }
+
+
+// Function to handle tab switching
+// function openTab(tabId) {
+//     const tabContents = document.querySelectorAll('.tab-content');
+//     tabContents.forEach(tab => {
+//         if (tab.id === tabId) {
+//             tab.style.display = 'block';
+//         } else {
+//             tab.style.display = 'none';
+//         }
+//     });
+// }
+
+// Attach event listeners to the form
+document.addEventListener('DOMContentLoaded', () => {
+    const registrationForm = document.querySelector('.registration-form');
+    
+    if (registrationForm) {
+        registrationForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Collect the form data
+            const formData = new FormData(registrationForm);
+
+            // Print each form field to the console
+            formData.forEach((value, key) => {
+                console.log(`${key}: ${value}`);
+            });
+
+            // You could also handle the form data here (e.g., send it to a server)
+        });
+    }
+
+    // Default to showing the 'home' tab on page load
+    openTab('home');
+});
