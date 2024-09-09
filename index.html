@@ -13,7 +13,7 @@
             <button class="tab-button" onclick="openTab('home')">Home</button>
             <button class="tab-button" onclick="openTab('new-tenant-registration')">New Tenant Registration</button>
             <button class="tab-button" onclick="openTab('tenant-transaction')">Tenant Transaction</button>
-            <button class="tab-button" onclick="openTab('message-creation')">Message Creation</button>
+            <button class="tab-button" onclick="openTab('message-creation')">View Transactions & pendings</button>
             <button class="tab-button" onclick="openTab('user-account-creation')">User Account Creation</button>
         </div>
         <div class="tab-content" id="home">Welcome to the Rental Management Portal.</div>
@@ -75,23 +75,59 @@
                 <input type="date" id="agreement-date" name="agreement-date" required>
 
                 <label for="room-rent">Room Rent:</label>
-                <input type="text" id="room-rent" name="room-rent" required>
+                <input type="number" id="room-rent" name="room-rent" required>
 
                 <label for="advance-balance">Advance Balance:</label>
                 <input type="number" id="advance-balance" name="advance-balance" required>
 
                 <label for="electricity-meter">Electricity Meter Reading:</label>
-                <input type="text" id="electricity-meter" name="electricity-meter">
+                <input type="number" id="electricity-meter" name="electricity-meter">
 
                 <label for="water-meter">Water Meter Reading:</label>
-                <input type="text" id="water-meter" name="water-meter">
+                <input type="number" id="water-meter" name="water-meter">
 
                 <button type="submit">Submit</button>
             </form>
         </div>
-        <div class="tab-content" id="tenant-transaction">Tenant Transaction Management.</div>
-        <div class="tab-content" id="message-creation">Message Creation Section.</div>
-        <div class="tab-content" id="user-account-creation">User Account Creation Area.</div>
+        <div class="tab-content" id="tenant-transaction"> 
+
+            <h1>Tenant Transactions</h1>
+            <form id="transactionForm">
+                <div class="form-group" id="transactionStep1">
+                    <label for="transactionType">Select Transaction Type:</label>
+                    <select id="transactionType" name="transactionType">
+                        <option value="">--Select--</option>
+                        <option value="rent">Submit Rent</option>
+                        <option value="electricity">Submit Electricity Bill</option>
+                        <option value="water">Submit Water Bill</option>
+                    </select>
+                    <button type="button" class="trn-button" onclick="nextStep()">Next</button>
+                    <button type="button" class="trn-button" onclick="backStep()">Back</button>
+                </div>
+                <div class="form-group" id="transactionStep2" style="display: none;">
+                    <label for="transactionType">Transaction Type :</label>
+                    <input type="text" id="transactionType" name="transactionType" placeholder="Transaction type" value="77777" disabled>
+                    <label for="tenantId">Tenant ID:</label>
+                    <input type="text" id="tenantId" name="tenantId" placeholder="Enter Tenant ID" required>
+                    <button type="button"  class="trn-button" onclick="showDetails()">Submit</button>
+                    <button type="button"  class="trn-button" onclick="backStep()">Back</button>
+                </div>
+                <div class="form-group" id="transactionDetails" style="display: none;">
+                    <p id="details"></p>
+                    <label for="transactionType">Transaction Type :</label>
+                    <input type="text" id="transactionType" name="transactionType" placeholder="transaction type" value="77777" disabled>
+                    <label for="tenantId">Tenant ID:</label>
+                    <input type="text" id="tenantId" name="tenantId" placeholder="Tenant ID"  value = "3443334" disabled>
+                    <label for="amountToPay">Amount to Pay:</label>
+                    <input type="number" id="amountToPay" name="amountToPay" placeholder="Enter amount" required>
+                    <button type="button"  class="trn-button" onclick="completeTransaction()">Complete Transaction</button>
+                    <button type="button"  class="trn-button" onclick="backStep()">Back</button>
+                </div>
+                <div id="message" class="message"></div>
+            </form>
+        </div>
+        <div class="tab-content" id="message-creation"> Message Creation Section. </div>
+        <div class="tab-content" id="user-account-creation"> User Account Creation Area. </div>
     </div>
     <script src="scripts.js"></script>
 </body>
