@@ -10,13 +10,59 @@
     <div class="container">
         <h1>Rental Management System</h1>
         <div class="tabs">
-            <button class="tab-button" onclick="openTab('home')">Home</button>
+            <button class="tab-button" onclick="openTab('home')"> Home</button>
             <button class="tab-button" onclick="openTab('new-tenant-registration')">New Tenant Registration</button>
             <button class="tab-button" onclick="openTab('tenant-transaction')">Tenant Transaction</button>
-            <button class="tab-button" onclick="openTab('message-creation')">View Transactions & pendings</button>
+            <button class="tab-button" onclick="openTab('message-creation')">Bill Forcasting</button>
             <button class="tab-button" onclick="openTab('user-account-creation')">User Account Creation</button>
         </div>
-        <div class="tab-content" id="home">Welcome to the Rental Management Portal.</div>
+
+        <!-- home dive -->
+        <div class="tab-content" id="home">
+            <section id="hero">
+                <div>
+                    <div class="hero-content">
+                        <h2>Streamline Your Rental Management</h2>
+                        <p>Efficiently manage your properties and tenants with our cutting-edge rental management system.</p>
+                        <a href="#contact" class="cta-button">Get Started</a>
+                    </div>
+                    <div class="hero-image">
+                        <!-- <img src="https://via.placeholder.com/500" alt="Rental Management"> -->
+                    </div>
+                </div>
+            </section>
+            <section id="features">
+                <div class="container">
+                    <h2>Features</h2>
+                    <div class="feature-item">
+                        <h3>Easy Property Management</h3>
+                        <p>Manage all your properties with ease using our intuitive interface.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Automated Payments</h3>
+                        <p>Automate rent collection and payment reminders to save time and reduce errors.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Tenant Communication</h3>
+                        <p>Communicate directly with tenants through the built-in messaging system.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="contact">
+                <div class="container">
+                    <h2>Contact Us</h2>
+                    <p>Ready to get started? Reach out to us for more information!</p>
+                    <a href="anshumansoni741@gmail.com" class="cta-button">anshumansoni741@gmail.com</a>
+                </div>
+            </section>
+            <footer>
+                <div>
+                    <p>&copy; 2024 Rental Management System. All rights reserved.</p>
+                </div>
+            </footer>
+
+            <!--end of home div  -->
+        </div>
         <div class="tab-content" id="new-tenant-registration">
             <form class="registration-form">
                 <h2>New Tenant Registration</h2>
@@ -106,7 +152,7 @@
                 </div>
                 <div class="form-group" id="transactionStep2" style="display: none;">
                     <label for="transactionType">Transaction Type :</label>
-                    <input type="text" id="transactionType" name="transactionType" placeholder="Transaction type" value="77777" disabled>
+                    <input type="text" id="transactionType_sh" name="transactionType" placeholder="Transaction type" value="77777" disabled>
                     <label for="tenantId">Tenant ID:</label>
                     <input type="text" id="tenantId" name="tenantId" placeholder="Enter Tenant ID" required>
                     <button type="button"  class="trn-button" onclick="showDetails()">Submit</button>
@@ -115,9 +161,9 @@
                 <div class="form-group" id="transactionDetails" style="display: none;">
                     <p id="details"></p>
                     <label for="transactionType">Transaction Type :</label>
-                    <input type="text" id="transactionType" name="transactionType" placeholder="transaction type" value="77777" disabled>
+                    <input type="text" id="transactionType_sh" name="transactionType" placeholder="transaction type" disabled>
                     <label for="tenantId">Tenant ID:</label>
-                    <input type="text" id="tenantId" name="tenantId" placeholder="Tenant ID"  value = "3443334" disabled>
+                    <input type="text" id="tenantId_sh" name="tenantId" placeholder="Tenant ID"  value = "3443334" disabled>
                     <label for="amountToPay">Amount to Pay:</label>
                     <input type="number" id="amountToPay" name="amountToPay" placeholder="Enter amount" required>
                     <button type="button"  class="trn-button" onclick="completeTransaction()">Complete Transaction</button>
@@ -130,5 +176,13 @@
         <div class="tab-content" id="user-account-creation"> User Account Creation Area. </div>
     </div>
     <script src="scripts.js"></script>
+    <script>
+
+        // JavaScript for animations and interactions can be added here if needed
+document.addEventListener('DOMContentLoaded', () => {
+    // Example: Scroll animations or other interactions
+});
+
+    </script>
 </body>
 </html>

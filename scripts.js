@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     openTab('home');
 });
 
+
 function openTab(tabId) {
     // Hide all tab content
     const tabs = document.querySelectorAll('.tab-content');
@@ -29,16 +30,16 @@ function openTab(tabId) {
 
 
 // Function to handle tab switching
-// function openTab(tabId) {
-//     const tabContents = document.querySelectorAll('.tab-content');
-//     tabContents.forEach(tab => {
-//         if (tab.id === tabId) {
-//             tab.style.display = 'block';
-//         } else {
-//             tab.style.display = 'none';
-//         }
-//     });
-// }
+function openTab(tabId) {
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabContents.forEach(tab => {
+        if (tab.id === tabId) {
+            tab.style.display = 'block';
+        } else {
+            tab.style.display = 'none';
+        }
+    });
+}
 
 
 
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (registrationForm) {
         registrationForm.addEventListener('submit', (event) => {
             event.preventDefault(); // Prevent the default form submission
-
+            
             // Collect the form data
             const formData = new FormData(registrationForm);
 
@@ -57,11 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
             formData.forEach((value, key) => {
                 console.log(`${key}: ${value}`);
             });
-
+            
             // You could also handle the form data here (e.g., send it to a server)
         });
     }
-
+    
     // Default to showing the 'home' tab on page load
     openTab('home');
 });
@@ -78,43 +79,44 @@ function nextStep() {
         alert('Please select a transaction type.');
         return;
     }
-
-    // if( document.getElementById('transactionStep2').style.display == 'block'){
-    //     document.getElementById('transactionStep2').style.display = 'none';
-    //     document.getElementById('transactionStep1').style.display = 'block';
-    // }
-    // else if( document.getElementById('transactionDetails').style.display == 'block'){
-    //     document.getElementById('transactionDetails').style.display = 'none';
-    //     document.getElementById('transactionStep2').style.display = 'block';
-    // }
-    document.getElementById('transactionType').value = 
-    document.getElementById('transactionStep1').style.display = 'none';
-    document.getElementById('transactionStep2').style.display = 'block';
     
-}
-
-function backStep() {
-
-    if( document.getElementById('transactionStep2').style.display == 'block'){
-        document.getElementById('transactionStep2').style.display = 'none';
-        document.getElementById('transactionStep1').style.display = 'block';
+    // if( document.getElementById('transactionStep2').style.display == 'block'){
+        //     document.getElementById('transactionStep2').style.display = 'none';
+        //     document.getElementById('transactionStep1').style.display = 'block';
+        // }
+        // else if( document.getElementById('transactionDetails').style.display == 'block'){
+            //     document.getElementById('transactionDetails').style.display = 'none';
+            //     document.getElementById('transactionStep2').style.display = 'block';
+            // }
+            document.getElementById('transactionType_sh').value = transactionType;
+            document.getElementById('transactionStep1').style.display = 'none';
+            document.getElementById('transactionStep2').style.display = 'block';
+            
+        }
+        
+        function backStep() {
+            
+            if( document.getElementById('transactionStep2').style.display == 'block'){
+                document.getElementById('transactionStep2').style.display = 'none';
+                document.getElementById('transactionStep1').style.display = 'block';
+            }
+            else if( document.getElementById('transactionDetails').style.display == 'block'){
+                document.getElementById('transactionDetails').style.display = 'none';
+                document.getElementById('transactionStep2').style.display = 'block';
+            }
+            
     }
-    else if( document.getElementById('transactionDetails').style.display == 'block'){
-        document.getElementById('transactionDetails').style.display = 'none';
-        document.getElementById('transactionStep2').style.display = 'block';
-    }
-
-    }
-function showDetails() {
+    function showDetails() {
     const transactionType = document.getElementById('transactionType').value;
     const tenantId = document.getElementById('tenantId').value;
     const detailsElement = document.getElementById('details');
+    document.getElementById('transactionType_sh').value = transactionType;
 
     if (tenantId === '') {
         alert('Please enter Tenant ID.');
         return;
     }
-
+    
     let totalAmount = 0;
     switch (transactionType) {
         case 'rent':
@@ -134,7 +136,7 @@ function showDetails() {
             break;
     }
 
-    let text = ` <b>Transaction Type:<b> ${transactionType.charAt(0).toUpperCase() + transactionType.slice(1)}
+    let text = `<b>Transaction Type:</b> ${transactionType.charAt(0).toUpperCase() + transactionType.slice(1)}
     \n , <b>Tenant ID:</b> ${tenantId}
     \n , <b>Total Amount to be Paid:</b> $${totalAmount}`;
     // detailsElement.textContent = ` Transaction Type: ${transactionType.charAt(0).toUpperCase() + transactionType.slice(1)}
@@ -142,11 +144,13 @@ function showDetails() {
     // \n , Total Amount to be Paid: $${totalAmount}`;
 
 
-    detailsElement.textContent = text.innertext;
+    // detailsElement.textContent = text.innertext;
+    detailsElement.innerHTML = text;
     
     document.getElementById('transactionStep2').style.display = 'none';
     document.getElementById('transactionDetails').style.display = 'block';
-
+    document.getElementById('tenantId_sh').value=tenantId;
+    
 }
 
 function completeTransaction() {
