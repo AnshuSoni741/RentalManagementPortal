@@ -1,0 +1,8 @@
+to create nice structure of program so that you or anyone else understand the your program use following
+
+1. create the overview of program and about the structure of program so it will understood by any one
+2. make comment on each major step of program so flow can be understood
+3. use oops programming way to write program
+4. use variable name which should be meaningful in programming
+5. your file structure should be clear and also commented
+6. at the start and at end of any module in programming there should by comment on it 

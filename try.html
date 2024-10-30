@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Bill Forecast</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Electricity Bill Forecast</h2>
+<form id="forecastForm">
+    <label for="previousBill">Previous Electricity Bill Amount:</label>
+    <input type="number" id="previousBill" name="previousBill" required>
+
+    <label for="previousBillStartDate">Start Date of Previous Bill:</label>
+    <input type="date" id="previousBillStartDate" name="previousBillStartDate" required>
+
+    <label for="previousBillEndDate">End Date of Previous Bill:</label>
+    <input type="date" id="previousBillEndDate" name="previousBillEndDate" required>
+
+    <label for="forecastStartDate">Forecast Start Date:</label>
+    <input type="date" id="forecastStartDate" name="forecastStartDate" required>
+
+    <label for="forecastEndDate">Forecast End Date:</label>
+    <input type="date" id="forecastEndDate" name="forecastEndDate" required>
+
+    <button type="submit">Generate Forecast</button>
+</form>
+
+<script>
+    document.getElementById('forecastForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Get form data
+        const previousBill = parseFloat(document.getElementById('previousBill').value);
+        const previousStartDate = new Date(document.getElementById('previousBillStartDate').value);
+        const previousEndDate = new Date(document.getElementById('previousBillEndDate').value);
+        const forecastStartDate = new Date(document.getElementById('forecastStartDate').value);
+        const forecastEndDate = new Date(document.getElementById('forecastEndDate').value);
+        
+        // Calculate the number of days in previous period and forecast period
+        const previousDays = (previousEndDate - previousStartDate) / (1000 * 60 * 60 * 24);
+        const forecastDays = (forecastEndDate - forecastStartDate) / (1000 * 60 * 60 * 24);
+        
+        // Calculate forecasted bill (simple linear projection)
+        const dailyRate = previousBill / previousDays;
+        const forecastedBill = dailyRate * forecastDays;
+
+        // Display forecasted bill
+        alert(`Forecasted Bill Amount: $${forecastedBill.toFixed(2)}`);
+    });
+</script>
+
+</body>
+</html>

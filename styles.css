@@ -16,7 +16,7 @@ body {
 
 .tabs {
     display: flex;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 3px solid black;
     margin-bottom: 20px;
 }
 
@@ -24,19 +24,21 @@ body {
     flex: 1;
     padding: 10px;
     background: #e0e0e0;
-    border: none;
+    border: 1px solid black;
     cursor: pointer;
     font-size: 16px;
     text-align: center;
 }
 
 .tab-button:hover {
-    background: #ddd;
+    background: silver;
 }
 
 .tab-button.active {
     background: #ccc;
     font-weight: bold;
+    border: 1px solid rgb(172, 24, 24);
+    font-size: 20px;
 }
 
 .tab-content {
@@ -47,25 +49,25 @@ body {
     display: block;
 } */
 
-.registration-form {
+.registration-form,#forecastForm {
     background: #f9f9f9;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.registration-form h2 {
+.registration-form,#forecastForm h2 {
     margin-top: 0;
     color: #333;
 }
 
-.registration-form label {
+.registration-form,#forecastForm label {
     display: block;
     margin: 10px 0 5px;
     color: #555;
 }
 
-.registration-form input, .registration-form textarea {
+.registration-form input, .registration-form textarea,#forecastForm input {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
@@ -73,7 +75,7 @@ body {
     border-radius: 4px;
 }
 
-.registration-form button {
+.registration-form button , #forecastForm button {
     padding: 10px 20px;
     background: #28a745;
     border: none;

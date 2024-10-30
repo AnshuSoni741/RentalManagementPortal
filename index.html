@@ -1,3 +1,12 @@
+<!-- !HELLO MY FRIEND -->
+ <!-- THIS IS AN RENTAL MANAGEMENT PORTAL IN WHICH YOU CAN MANAGEDATA RELATED TO RENT OF YOUR PROPERTY -->
+  <!-- HERE WE HAVE MADE AND SIMPLE STRCUTERE OF THIS PORTAL WE HAVE- 
+        1. ONE CONTAINER DIV WHICH CONTAIN EVERY THING OF PORTAL
+            IN CONTAINER DIV WE HAVE -
+                    A.ONE HEADING OF MANAGEMENT PORTAL
+                    B. ONE tabs div which containe tab buttones 
+                    c. FIVE OTHER DIV WHICH ARE BEING SHOWN AND HIDE ON THE BASIS OF TAB SELECTED ON THE BASIS OF TRANSACTION REUIRED-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,11 +19,11 @@
     <div class="container">
         <h1>Rental Management System</h1>
         <div class="tabs">
-            <button class="tab-button" onclick="openTab('home')"> Home</button>
+            <button class="tab-button" onclick="openTab('home')">Home</button>
             <button class="tab-button" onclick="openTab('new-tenant-registration')">New Tenant Registration</button>
             <button class="tab-button" onclick="openTab('tenant-transaction')">Tenant Transaction</button>
-            <button class="tab-button" onclick="openTab('message-creation')">Bill Forcasting</button>
-            <button class="tab-button" onclick="openTab('user-account-creation')">User Account Creation</button>
+            <button class="tab-button" onclick="openTab('bill-forcasting')">Bill Forcasting</button>
+            <button class="tab-button" onclick="openTab('sign-up')">Sign Up</button>
         </div>
 
         <!-- home dive -->
@@ -62,6 +71,8 @@
             </footer>
 
             <!--end of home div  -->
+
+            <!-- registration div -->
         </div>
         <div class="tab-content" id="new-tenant-registration">
             <form class="registration-form">
@@ -135,8 +146,12 @@
                 <button type="submit">Submit</button>
             </form>
         </div>
-        <div class="tab-content" id="tenant-transaction"> 
+        <!-- end of registartion div -->
 
+        
+        <!-- START OF TENANANT TRASACTION DIV -->
+        <div class="tab-content" id="tenant-transaction"> 
+            
             <h1>Tenant Transactions</h1>
             <form id="transactionForm">
                 <div class="form-group" id="transactionStep1">
@@ -172,8 +187,44 @@
                 <div id="message" class="message"></div>
             </form>
         </div>
-        <div class="tab-content" id="message-creation"> Message Creation Section. </div>
-        <div class="tab-content" id="user-account-creation"> User Account Creation Area. </div>
+        <!-- END OF TENANANT TRASACTION DIV -->
+
+        <!-- START OF BILL FORCASTING DIV -->
+        <div class="tab-content" id="bill-forcasting"> 
+
+            <!-- take previous bill with date range from user -->
+             <!-- take range of date for which bill is to be forcasted -->
+              <!-- show forcasted bill with date range -->
+
+              <h2>Electricity Bill Forecast</h2>
+              <form id="forecastForm">
+                  <label for="previousBill">Previous Electricity Bill Amount:</label>
+                  <input type="number" id="previousBill" name="previousBill" required>
+          
+                  <label for="previousBillStartDate">Start Date of Previous Bill:</label>
+                  <input type="date" id="previousBillStartDate" name="previousBillStartDate" required>
+          
+                  <label for="previousBillEndDate">End Date of Previous Bill:</label>
+                  <input type="date" id="previousBillEndDate" name="previousBillEndDate" required>
+          
+                  <label for="forecastStartDate">Forecast Start Date:</label>
+                  <input type="date" id="forecastStartDate" name="forecastStartDate" required>
+          
+                  <label for="forecastEndDate">Forecast End Date:</label>
+                  <input type="date" id="forecastEndDate" name="forecastEndDate" required>
+          
+                  <button type="submit">Generate Forecast</button>
+              </form>
+              
+              <div id="forcastedbill">helll</div>
+            </div>
+        <!-- END OF BILL FORCASTING DIV -->
+        
+
+        <!-- START OF ACCOUNT CREATION DIV-->
+        <div class="tab-content" id="sign-up"> User Account Creation</div>
+        <!-- END OF ACCOUNT CREATION DIV-->
+
     </div>
     <script src="scripts.js"></script>
     <script>

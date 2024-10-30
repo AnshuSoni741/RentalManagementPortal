@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+// tab button logic 1 non active
 function openTab(tabId) {
     // Hide all tab content
     const tabs = document.querySelectorAll('.tab-content');
@@ -39,6 +40,19 @@ function openTab(tabId) {
             tab.style.display = 'none';
         }
     });
+     // Remove active class from all tab buttons
+     const tabButtons = document.querySelectorAll('.tab-button');
+     tabButtons.forEach(button => {
+         button.classList.remove('active');
+     });
+
+      // Set the active tab button
+    const activeButton = [...tabButtons].find(button => button.textContent.toLowerCase().includes(tabId.replaceAll('-', ' ')));
+    if (activeButton) {
+        activeButton.classList.add('active');
+    }
+
+
 }
 
 
@@ -175,6 +189,30 @@ function completeTransaction() {
     document.getElementById('transactionDetails').style.display = 'none';
 }
 
+//bill forcasting
+document.getElementById('forecastForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Get form data
+    const previousBill = parseFloat(document.getElementById('previousBill').value);
+    const previousStartDate = new Date(document.getElementById('previousBillStartDate').value);
+    const previousEndDate = new Date(document.getElementById('previousBillEndDate').value);
+    const forecastStartDate = new Date(document.getElementById('forecastStartDate').value);
+    const forecastEndDate = new Date(document.getElementById('forecastEndDate').value);
+    
+    // Calculate the number of days in previous period and forecast period
+    const previousDays = (previousEndDate - previousStartDate) / (1000 * 60 * 60 * 24);
+    const forecastDays = (forecastEndDate - forecastStartDate) / (1000 * 60 * 60 * 24);
+    
+    // Calculate forecasted bill (simple linear projection)
+    const dailyRate = previousBill / previousDays;
+    const forecastedBill = dailyRate * forecastDays;
+
+    // Display forecasted bill
+    // alert(`Forecasted Bill Amount: $${forecastedBill.toFixed(2)}`);
+    let bill_lable = document.getElementById("forcastedbill");
+    bill_lable.innerText = forecastedBill.toFixed(2);
+});
 
 // function submitTransaction() {
 //     const transactionType = document.getElementById('transactionType').value;
