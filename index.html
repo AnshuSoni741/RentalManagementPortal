@@ -7,14 +7,18 @@
                     B. ONE tabs div which containe tab buttones 
                     c. FIVE OTHER DIV WHICH ARE BEING SHOWN AND HIDE ON THE BASIS OF TAB SELECTED ON THE BASIS OF TRANSACTION REUIRED-->
 
+
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rental Management Portal</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Rental Management System</h1>
@@ -189,6 +193,7 @@
         </div>
         <!-- END OF TENANANT TRASACTION DIV -->
 
+
         <!-- START OF BILL FORCASTING DIV -->
         <div class="tab-content" id="bill-forcasting"> 
 
@@ -198,7 +203,21 @@
 
               <h2>Electricity Bill Forecast</h2>
               <form id="forecastForm">
-                  <label for="previousBill">Previous Electricity Bill Amount:</label>
+
+                <label for="previousBill">Forcasting by meter Reading (in units) (or) Amount (in Rs) :</label>
+                
+                <div id ="mode_selection">
+                <span id="radio_option">
+                <label for="prv_reading">Meter Reading(units)</label>
+                <input type="radio" id="prv_reading" name="previous_type" value="unit" required>
+                </span>
+                 <span id="radio_option" float="left">
+                <label for="prv_amount">Bill Amount (Rupee)</label>
+                <input type="radio" id="prv_amount" name="previous_type" value="rupee" required>
+                 </span>
+                </div>
+
+                  <label for="previousBill">Previous Electricity Bill Amount / units:</label>
                   <input type="number" id="previousBill" name="previousBill" required>
           
                   <label for="previousBillStartDate">Start Date of Previous Bill:</label>
@@ -214,9 +233,13 @@
                   <input type="date" id="forecastEndDate" name="forecastEndDate" required>
           
                   <button type="submit">Generate Forecast</button>
+
+                  <div id="forcastedbill_div">
+                      <lable id="forcastedbill"></lable>
+                  </div>
+
               </form>
               
-              <div id="forcastedbill">helll</div>
             </div>
         <!-- END OF BILL FORCASTING DIV -->
         

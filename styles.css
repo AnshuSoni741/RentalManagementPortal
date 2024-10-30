@@ -274,3 +274,40 @@ footer {
     }
 }
 
+#forcastedbill_div{
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#forcastedbill{
+    margin-top: 1000px;
+}
+
+#mode_selection{
+display: flex;
+align-items: center;
+justify-content: space-around;
+column-gap: 30px;
+padding: 10px;
+}
+
+#radio_option{
+    display: flex;
+    align-items: center;
+}
+#radio_option label{
+    margin: 0px;
+    font-size: large;
+    width: 200px;
+}
+
+#radio_option input{
+    margin: 0px;
+    width: 20px;
+}
+
+
+

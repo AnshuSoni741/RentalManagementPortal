@@ -189,12 +189,29 @@ function completeTransaction() {
     document.getElementById('transactionDetails').style.display = 'none';
 }
 
+
 //bill forcasting
 document.getElementById('forecastForm').addEventListener('submit', function(event) {
     event.preventDefault();
     
     // Get form data
-    const previousBill = parseFloat(document.getElementById('previousBill').value);
+    let type_of_bill = document.getElementsById('mode_selection').value;
+    console.log(type_of_bill);
+
+
+    let previous_units = 0;
+    let previousBill = 0;
+
+
+    if(type_of_bill=="rupee"){
+        previousBill = parseFloat(document.getElementById('previousBill').value);
+        previous_units = previousBill/8;
+    }else if(type_of_bill=="unit"){
+        previous_units = parseFloat(document.getElementById('previousBill').value);
+        previousBill = previous_units * 8;
+
+    }
+   
     const previousStartDate = new Date(document.getElementById('previousBillStartDate').value);
     const previousEndDate = new Date(document.getElementById('previousBillEndDate').value);
     const forecastStartDate = new Date(document.getElementById('forecastStartDate').value);
@@ -203,15 +220,21 @@ document.getElementById('forecastForm').addEventListener('submit', function(even
     // Calculate the number of days in previous period and forecast period
     const previousDays = (previousEndDate - previousStartDate) / (1000 * 60 * 60 * 24);
     const forecastDays = (forecastEndDate - forecastStartDate) / (1000 * 60 * 60 * 24);
-    
+
     // Calculate forecasted bill (simple linear projection)
     const dailyRate = previousBill / previousDays;
     const forecastedBill = dailyRate * forecastDays;
 
+    //calculation of forcasted units
+    const daily_unit_Rate = previous_units / previousDays;
+    const forecasted_unit_Bill = daily_unit_Rate * forecastDays;
+
     // Display forecasted bill
     // alert(`Forecasted Bill Amount: $${forecastedBill.toFixed(2)}`);
     let bill_lable = document.getElementById("forcastedbill");
-    bill_lable.innerText = forecastedBill.toFixed(2);
+    bill_lable.innerText = "forcasted bill amount : " + forecastedBill.toFixed(2)+" and units :"+ forecasted_unit_Bill.toFixed(2) ;
+
+
 });
 
 // function submitTransaction() {
