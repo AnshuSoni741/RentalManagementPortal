@@ -195,7 +195,19 @@ document.getElementById('forecastForm').addEventListener('submit', function(even
     event.preventDefault();
     
     // Get form data
-    let type_of_bill = document.getElementsById('mode_selection').value;
+
+    let bill_type_array = document.getElementsByName('previous_bill_type');
+    // console.log(bill_type_array); // all bill type print with their checked status
+    let type_of_bill = ""; //initialization of bill type
+
+    //getting selected mode in bill type forcasting wheather by bill amount or by unit
+    for(let i=0; i<bill_type_array.length;i++){
+        if(bill_type_array[i].checked){
+            type_of_bill = bill_type_array[i].value;
+        }
+        console.log(bill_type_array[i].value);
+    }
+
     console.log(type_of_bill);
 
 
