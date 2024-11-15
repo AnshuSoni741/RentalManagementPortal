@@ -20,8 +20,14 @@
 </head>
 
 <body>
+
+    <!-- START OF CONTAINER DIV -->
     <div class="container">
+
+        <!-- HEADING IN PAGE -->
         <h1>Rental Management System</h1>
+
+        <!-- ALL TABS IN CONTAINER -->
         <div class="tabs">
             <button class="tab-button" onclick="openTab('home')">Home</button>
             <button class="tab-button" onclick="openTab('new-tenant-registration')">New Tenant Registration</button>
@@ -29,6 +35,7 @@
             <button class="tab-button" onclick="openTab('bill-forcasting')">Bill Forcasting</button>
             <button class="tab-button" onclick="openTab('sign-up')">Sign Up</button>
         </div>
+
 
         <!-- home dive -->
         <div class="tab-content" id="home">
@@ -78,6 +85,10 @@
 
             <!-- registration div -->
         </div>
+        <!-- END OF HOME DIV -->
+
+
+        <!-- START OF TENANT REGISTRATION DIV -->
         <div class="tab-content" id="new-tenant-registration">
             <form class="registration-form">
                 <h2>New Tenant Registration</h2>
@@ -240,21 +251,67 @@
 
               </form>
               
-            </div>
+        </div>
         <!-- END OF BILL FORCASTING DIV -->
         
 
         <!-- START OF ACCOUNT CREATION DIV-->
-        <div class="tab-content" id="sign-up"> User Account Creation</div>
+        <div class="tab-content" id="sign-up">
+
+            <form class="sign-up">
+                <h2>Owner's Registration</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="father-name">Father's Name:</label>
+                <input type="text" id="father-name" name="father-name" required>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <label for="aadhar">Aadhar Number:</label>
+                <input type="text" id="aadhar" name="aadhar" required>
+
+                <label for="address">Full Permanent Address:</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+
+                <label for="police-station">Locality Police Station Name:</label>
+                <input type="text" id="police-station" name="police-station" required>
+
+                <label for="mobile">Mobile Number:</label>
+                <input type="text" id="mobile" name="mobile" required>
+
+                <label for="alt-mobile">Alternate Mobile Number:</label>
+                <input type="text" id="alt-mobile" name="alt-mobile">
+
+                <label for="email">Email ID:</label>
+                <input type="email" id="email" name="email">
+
+                <label for="home-mobile">Home Mobile Number:</label>
+                <input type="text" id="home-mobile" name="home-mobile">
+
+                <label for="num-persons">Number of Persons : </label>
+                <input type="number" id="rent-persons" name="num-persons" required>
+
+                <label for="available-room">No of Rooms Available:</label>
+                <input type="number" id="available-room" name="available-room" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
         <!-- END OF ACCOUNT CREATION DIV-->
 
     </div>
+    <!-- END OF CONTAINER DIV  -->
+
     <script src="scripts.js"></script>
     <script>
 
-        // JavaScript for animations and interactions can be added here if needed
-document.addEventListener('DOMContentLoaded', () => {
+    // JavaScript for animations and interactions can be added here if needed
+    document.addEventListener('DOMContentLoaded', () => {
     // Example: Scroll animations or other interactions
+    console.log("heloo this animation");
+    console.log("start of animation");
 });
 
     </script>

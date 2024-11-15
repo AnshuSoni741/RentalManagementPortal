@@ -37,7 +37,7 @@ body {
 .tab-button.active {
     background: #ccc;
     font-weight: bold;
-    border: 1px solid rgb(172, 24, 24);
+    border: 1px solid rgb(24, 101, 172);
     font-size: 20px;
 }
 
@@ -49,13 +49,16 @@ body {
     display: block;
 } */
 
-.registration-form,#forecastForm {
-    background: #f9f9f9;
+.registration-form sign-,#forecastForm {
+    background: #d40f0f;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.sign-up{
+    
+}
 .registration-form,#forecastForm h2 {
     margin-top: 0;
     color: #333;
