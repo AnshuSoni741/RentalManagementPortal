@@ -7,7 +7,7 @@
                     B. ONE tabs div which containe tab buttones 
                     c. FIVE OTHER DIV WHICH ARE BEING SHOWN AND HIDE ON THE BASIS OF TAB SELECTED ON THE BASIS OF TRANSACTION REUIRED-->
 
-
+<!-- this is rental managemet page -->
 <!DOCTYPE html>
 
 <html lang="en">
@@ -21,8 +21,12 @@
 
 <body>
 
+
+     <!-- Loader element -->
+  <div id="loader"></div>
+
     <!-- START OF CONTAINER DIV -->
-    <div class="container">
+    <div class="container hidden">
 
         <!-- HEADING IN PAGE -->
         <h1>Rental Management System</h1>
@@ -309,10 +313,19 @@
 
     // JavaScript for animations and interactions can be added here if needed
     document.addEventListener('DOMContentLoaded', () => {
-    // Example: Scroll animations or other interactions
-    console.log("heloo this animation");
-    console.log("start of animation");
-});
+        // the logic will executed when page will be loaded
+        setTimeout(()=>{
+
+            // Hide the loader
+            const loader = document.getElementById("loader");
+            loader.style.display = "none";
+
+            // Show the main content
+            let content = document.getElementsByClassName(".container");
+            content.classList.remove("hidden");
+            },4000);
+
+         });
 
     </script>
 </body>

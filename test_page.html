@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Web Page with Loader</title>
+
+<!-- this is test page -->
+  <!-- Link to the external CSS -->
+  <style>
+    /* Set a basic style for the body */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+/* Loader styles */
+#loader {
+  border: 8px solid #f3f3f3; /* Light gray border */
+  border-top: 8px solid #3498db; /* Blue border on top */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 3s linear infinite;
+}
+
+/* Keyframes for loader spin animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hide the content initially */
+.hidden {
+  display: none;
+}
+
+/* Main content styles */
+#content {
+  text-align: center;
+}
+  </style>
+
+
+</head>
+<body>
+  <!-- Loader element -->
+  <div id="loader"></div>
+
+  <!-- Main content of the page -->
+  <div id="content" class="hidden">
+    <h1>Welcome to the Simple Block Web Page</h1>
+    <p>This is a simple web page with a loader effect.</p>
+  </div>
+
+  <!-- Link to the external JavaScript -->
+  <script>
+    // Wait for the DOM content to load completely
+document.addEventListener("DOMContentLoaded", () => {
+  // Simulate a delay for the loader
+  setTimeout(() => {
+    // Hide the loader
+    const loader = document.getElementById("loader");
+    loader.style.display = "none";
+
+    // Show the main content
+    const content = document.getElementById("content");
+    content.classList.remove("hidden");
+  }, 4000); // 2-second delay
+});
+
+  </script>
+</body>
+</html>
